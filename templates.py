@@ -666,6 +666,7 @@ _DASH_JS = r"""
             head.appendChild(el("span", "svc-name", s.label));
             head.appendChild(el("span", "tag " + (SVC_CLS[s.health] || ""), SVC_LABELS[s.health] || s.health));
             item.appendChild(head);
+            if (s.description) item.appendChild(el("div", "svc-meta", s.description));
             var parts = [s.health_reason];
             if (s.running) parts.push("actif depuis " + fmtDur(s.uptime_s));
             if (s.heartbeat_age_s != null) parts.push("dernière activité il y a " + fmtDur(s.heartbeat_age_s));
